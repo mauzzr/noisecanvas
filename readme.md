@@ -3,8 +3,10 @@ A fullscreen-able HTML5 canvas displaying pseudorandom noise. Made to mitigate i
 
 ## Usage
 Click to pause and unpause the noise.
+
 Two query string options are available: `s` controls the tile size (default 128) and `c` toggles between RGB and monochrome noise (default 0, meaning monochrome).
-Larger tile sizes will reduce the periodic look of the noise, but can have adverse effects on performance for large values of `s` (see below).
+Larger tile sizes will increase the period of the noise, but can have adverse effects on performance for large values of `s` (see below).
+
 For example: `https://mauzzr.github.io/noisecanvas/?s=64&c=1` would draw RGB noise with a tile size of 64.
 
 ### Performance
