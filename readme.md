@@ -1,13 +1,15 @@
-#Noise Canvas
+# Noise Canvas
 A fullscreen-able HTML5 canvas displaying pseudorandom noise. Made to mitigate image persistence on one of my monitors.
 
-##Usage
+## Usage
 Click to pause and unpause the noise.
-Two query string options are available: `s` controls the tile size and `c` toggles between RGB and monochrome noise.
+Two query string options are available: `s` controls the tile size (default 128) and `c` toggles between RGB and monochrome noise (default 0, meaning monochrome).
+Larger tile sizes will reduce the periodic look of the noise, but can have adverse effects on performance for large values of `s` (see below).
+For example: `https://mauzzr.github.io/noisecanvas/?s=64&c=1` would draw RGB noise with a tile size of 64.
 
-###Performance
-Not exactly the goal here, but I was hoping to hit 60fps at 1920x1080 to match the refresh rate on the display in question.
-Below are a few benchmarks run under Firefox (at 1920x1080). Each test is averaged over 3 runs of 10 seconds each because Firefox's profiler is, ironically, pretty slow.
+### Performance
+Below are a few benchmarks run under Firefox (at 1920x1080 on a 60Hz display).
+Each test is averaged over 3 runs of 10 seconds each because Firefox's profiler is, ironically, pretty slow.
 
 | Tile Size | Monochrome FPS   | Color FPS |
 |:---------:|:-----------------|:----------|
@@ -19,4 +21,4 @@ Below are a few benchmarks run under Firefox (at 1920x1080). Each test is averag
 | 1024      | 44.27            | 25.96     |
 
 Note that because the canvas is redrawn using `window.requestAnimationFrame`, framerate may vary with display refresh rate.
-In either case, `s` between 64 and 512 appears to be a fairly safe range.
+In either case, `s` between 64 and 512 appears to be a safe range.
