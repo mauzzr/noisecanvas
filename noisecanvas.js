@@ -30,7 +30,7 @@ function load() {
             // for each color channel
             for (let c = 0; c < 3; c++) {
                 imageData.data[p + c] = r < 0.5 ? 0 : 255;
-                if (!monochrome) {
+                if (!monochrome && c != 2) {
                     r = Math.random();
                 }
             }
